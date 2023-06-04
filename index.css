@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#map {
+  text-align: center;
+  height: 600px;
+  width: 600px;
+}
+
+#placeName,
+#placeDesc,
+#placeCity,
+#placeNotes {
+  display: block;
+  width: 300px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+label {
+  font-weight: bold;
+}
+
+#addBtn {
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  width: 307px;
+}
+
+.currentLoc {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+  width: 500px;
+}
+
+#title-img {
+  width: 100px;
+}
+
+.head-page {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

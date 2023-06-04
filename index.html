@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <link rel="icon" type="image/x-icon" href="logo.png" />
+    <title>SpotR - Mark your spots on the Map!</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <div class="head-page">
+      <img id="title-img" src="logo.png" alt="logo"></img>
+      <h1>SpotR - Mark your spots on the Map!</h1>
+    </div>
+    <div class="container">
+      <div id="map"></div>
+      <button class="currentLoc">Use my current location</button>
+      <div class="locationsList"></div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
