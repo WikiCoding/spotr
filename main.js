@@ -24,13 +24,13 @@ const getPos = async (res) => {
 
       const container = document.createElement('div');
 
-      const containerContent = `<div><h4>Name: ${location.name}</h4></div><div><h4>Description: ${location.description}</h4></div><div><h4>Notes: ${location.notes}</h4></div><div><h4>City, Country: ${location.city}</h4></div><div><h4>Created At: ${new Date(location.createdAt).toLocaleDateString()}</h4></div><div><div><button class="loc-Name${location.name}">Go to marker on this map</button></div><a href='https://www.google.pt/maps/@${location.lat},${location.long},20.43z?entry=ttu'>Go to Google Maps</a><hr>`;
+      const containerContent = `<div><h4>Name: ${location.name}</h4></div><div><h4>Description: ${location.description}</h4></div><div><h4>Notes: ${location.notes}</h4></div><div><h4>City, Country: ${location.city}</h4></div><div><h4>Created At: ${new Date(location.createdAt).toLocaleDateString()}</h4></div><div><div><button class="loc-Name${location.name.trim()}">Go to marker on this map</button></div><a href='https://www.google.pt/maps/@${location.lat},${location.long},20.43z?entry=ttu'>Go to Google Maps</a><hr>`;
 
       container.innerHTML = containerContent;
 
       locationsList.appendChild(container);
 
-      const locName = document.querySelector(`.loc-Name${location.name}`);
+      const locName = document.querySelector(`.loc-Name${location.name.trim()}`);
 
       if (locName !== null) {
         locName.addEventListener('click', () => {
