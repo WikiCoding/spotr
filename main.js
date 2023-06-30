@@ -24,13 +24,23 @@ const getPos = async (res) => {
 
       const container = document.createElement('div');
 
-      const containerContent = `<div><h4>Name: ${location.name}</h4></div><div><h4>Description: ${location.description}</h4></div><div><h4>Notes: ${location.notes}</h4></div><div><h4>City, Country: ${location.city}</h4></div><div><h4>Created At: ${new Date(location.createdAt).toLocaleDateString()}</h4></div><div><div><button class="loc-Name${location.name.trim()}">Go to marker on this map</button></div><a href='https://www.google.pt/maps/@${location.lat},${location.long},20.43z?entry=ttu'>Go to Google Maps</a><hr>`;
+      let finalName = '';
+
+      if (location.name.includes('.')) {
+        const correctedName = location.name.split('.');
+        correctedName.forEach(nameIndice => {
+          finalName = finalName + nameIndice;
+        })
+        console.log(finalName);
+      }
+
+      const containerContent = `<div><h4>Name: ${location.name}</h4></div><div><h4>Description: ${location.description}</h4></div><div><h4>Notes: ${location.notes}</h4></div><div><h4>City, Country: ${location.city}</h4></div><div><h4>Created At: ${new Date(location.createdAt).toLocaleDateString()}</h4></div><div><div><button class="loc-Name${finalName}">Go to marker on this map</button></div><a href='https://www.google.pt/maps/@${location.lat},${location.long},20.43z?entry=ttu'>Go to Google Maps</a><hr>`;
 
       container.innerHTML = containerContent;
 
       locationsList.appendChild(container);
 
-      const locName = document.querySelector(`.loc-Name${location.name.trim()}`);
+      const locName = document.querySelector(`.loc-Name${finalName}`);
 
       if (locName !== null) {
         locName.addEventListener('click', () => {
