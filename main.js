@@ -125,6 +125,8 @@ const getPos = async (res) => {
         newMarker.closePopup();
 
         renderMarkers();
+
+
       } else {
         alert('Name cannot be empty');
       }
@@ -154,6 +156,8 @@ const getPos = async (res) => {
         newMarker.closePopup();
 
         renderMarkers();
+
+         document.location.reload();
       } else {
         alert('Name cannot be empty');
       }
