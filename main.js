@@ -104,7 +104,7 @@ const getPos = async (res) => {
 
   const currentLoc = document.querySelector('.currentLoc');
   currentLoc.addEventListener('click', (e) => {
-    //const newMarker = L.marker([lat, lng]).addTo(map);
+    const newMarker = L.marker([lat, lng]).addTo(map);
 
     marker.bindPopup(popupForm).openPopup();
 
