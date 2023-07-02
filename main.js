@@ -1,5 +1,5 @@
-let lat = 0; // 41.0463411
-let lng = 0; // -8.6490691
+let lat = 0;
+let lng = 0;
 let locationsAdded = JSON.parse(localStorage.getItem('addedLocation')) || []
 const locationsList = document.querySelector('.locationsList');
 
@@ -9,6 +9,7 @@ const getPos = async (res) => {
   lat = await res.coords.latitude;
   lng = await res.coords.longitude;
 
+  // rendering loaded the markers to the map and to the list
   const renderMarkers = () => {
     locationsList.innerHTML = '';
 
@@ -71,6 +72,7 @@ const getPos = async (res) => {
     shadowSize: [41, 41]
   });
 
+  // adding the marker on the map
   const marker = L.marker([lat, lng], { icon: greenIcon }).addTo(map);
 
   //adding popup to the marker
@@ -83,10 +85,6 @@ const getPos = async (res) => {
 
     const locationsUpdated = locationsAdded.filter(s => s.name !== dataToDelete);
 
-    // const [locationClicked] = locationsAdded.filter(s => s.name === dataToDelete);
-
-    // const newMarker = L.marker([locationClicked.lat, locationClicked.long])
-
     const delBtn = document.querySelector('.del-btn');
 
     delBtn?.addEventListener('click', () => {
@@ -94,14 +92,11 @@ const getPos = async (res) => {
       locationsAdded = locationsUpdated
       localStorage.setItem('addedLocation', JSON.stringify(locationsAdded));
 
-      // map.removeLayer(newMarker);
-      // map.closePopup();
-
-      // renderMarkers();
       document.location.reload();
     })
   })
 
+  //Adding the Button "Use my current location" functionality
   const currentLoc = document.querySelector('.currentLoc');
   currentLoc.addEventListener('click', (e) => {
     const newMarker = L.marker([lat, lng]).addTo(map);
@@ -124,16 +119,14 @@ const getPos = async (res) => {
 
         newMarker.closePopup();
 
-        renderMarkers();
-
-        document.location.reload();
-
+        window.location.reload();
       } else {
         alert('Name cannot be empty');
       }
     })
   })
 
+  //Adding locations based on map click
   function onMapClick(e) {
 
     const newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
@@ -157,7 +150,6 @@ const getPos = async (res) => {
         newMarker.closePopup();
 
         renderMarkers();
-
       } else {
         alert('Name cannot be empty');
       }
