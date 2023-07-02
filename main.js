@@ -126,6 +126,7 @@ const getPos = async (res) => {
 
         renderMarkers();
 
+        document.location.reload();
 
       } else {
         alert('Name cannot be empty');
@@ -157,7 +158,6 @@ const getPos = async (res) => {
 
         renderMarkers();
 
-         document.location.reload();
       } else {
         alert('Name cannot be empty');
       }
